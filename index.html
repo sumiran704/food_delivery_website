@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manu's Kitchen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+<header>
+<nav class= "navbar">
+  <div class="logo">Manu's Kitchen</div>
+
+<ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li> <a href="#tracking">Track Order</a> </li>
+    <li><a href="#contact">Contact</a></li>
+
+    <!-- Cart Button --> 
+     <button class="cart-button" onclick="openCart()" > 
+      🛒 Cart 
+      <span id="cart-count"> 0 </span> 
+    </button> 
+  </nav> 
+</header>
+
+<!-- Hero Section -->
+<section id="home", class="hero">
+
+ <div class="hero-content">
+   <h1> Welcome to Manu's Kitchen </h1>
+
+     <p>
+        Authentic flavours , delicious food and unforgettable
+        dining experience with amazing ambeience.
+    </p>
+
+<a href="#menu" class="btn">Explore our menu</div> 
+   </div>
+
+</section>
+
+<!-- About Section -->
+<section id="about", class="about">
+
+    <div class="about-text">
+       <h2>About our café </h2>
+         <p>
+           Manu's kitchen restaurant is a dream café where we try
+           to serve authentic delicious food with an amazing 
+           ambeience.
+         </p>
+    <p>
+       Our recipes are made with love and efforts with the traditional and 
+       authentic flavour. It has also an open mic which changes the mood 
+       of the restaurant into joy and happiness. All the recipes are amazing but 
+       the speciality is our vada pav.
+    </p>
+        </div>
+     </section>
+
+     <!-- Chef & Owner Section -->
+<section id="team", class="team">
+  <h2>Meet our team</h2>
+<p class="Team-Intro">
+    The people behind our delicious food and recipes
+</p>
+
+<div class="Team-container">
+
+<!-- Chef -->
+<div class="person-card">
+
+    <img src="images/owner.jpeg"  alt="Head chef">
+        <div class="person-info">
+             <h3>Chef Manu Smriti</h3>
+              <h4>Head Chef</h4>
+<p>
+    The chef Manu is also the owner of the restaurant, makes yummy and delicious authentic food
+    she started her work from home by delivery food slowly , slowly she made a café
+</p>
+</div>
+</div>
+
+<!-- Owner --> 
+<div class="person-card"> 
+<img src="images/owner.jpeg" alt="Cafe Owner"> 
+<div class="person-info"> 
+<h3>Mr. Manu Smriti</h3>
+<h4>Founder & Owner</h4>
+<p>
+  So as I told Ms. Manu is the chef and owner both of the restaurant , 
+  initially she struggled a lot but her passion for making delicious food
+  gave her the confidence and motivation and also seeing the support
+  from family she came close to our dreams. 
+</p>
+<div>
+<div>
+</div>
+</section>
+
+<!-- Menu Section --> 
+<section id="menu" class="menu"> 
+<h2>Our Popular Dishes</h2> 
+<p> Choose your favourite food and add it to your cart. </p>
+<!-- ===================== SEARCH BAR ====================== --> 
+ <input 
+ type="text" 
+ id="search" 
+ placeholder="🔍 Search your favourite food..." 
+ onkeyup="searchFood()" >
+ <!-- ===================== FOOD CATEGORIES ====================== --> 
+  <div class="categories"> 
+    <button onclick="filterFood('all')" > All </button> 
+    <button onclick="filterFood('snacks')" > Snacks </button> 
+    <button onclick="filterFood('chaat')" > Chaat </button> 
+    <button onclick="filterFood('special')" > Special </button> 
+  </div>
+  <!-- ===================== FOOD CONTAINER ====================== --> 
+   <div class="food-container">
+    <!-- ===================== VADA PAV ====================== --> 
+     <div class="food-card" data-category="snacks" data-name="Vada Pav" >
+      <img src="images/vada-pav.jpg" alt="Vada Pav"> 
+      <h3> Vada Pav </h3> 
+      <p> Spicy, crunchy and packed with desi emotion. </p> 
+      <div class="rating"> ⭐⭐⭐⭐⭐ </div> 
+      <span> ₹230 </span> 
+      <button onclick="addToCart(1)" > Add to Cart </button>
+
+     </div>
+     <!-- ===================== DAHI BHALLE ====================== --> 
+      <div class="food-card" data-category="chaat" data-name="Dahi Bhalle" >
+        <img src="images/dahi bhalle.avif" alt="Dahi Bhalle"> 
+        <h3> Dahi Bhalle </h3> 
+        <p> Soft bhalle topped with creamy dahi, chutney and delicious spices. </p> 
+        <div class="rating"> ⭐⭐⭐⭐⭐ </div> 
+        <span> ₹280 </span> 
+        <button onclick="addToCart(2)" > Add to Cart </button>
+  
+      </div>
+      <!-- ===================== SUJI BALLS ====================== --> 
+       <div class="food-card" data-category="special" data-name="Suji Balls" >
+         <img src="images/suji balls.jpg" alt="Suji Balls"> 
+         <h3> Suji Balls </h3> 
+         <p> Crispy and delicious suji balls served with tasty chutney. </p> 
+         <div class="rating"> ⭐⭐⭐⭐⭐ </div> 
+         <span> ₹300 </span> 
+         <button onclick="addToCart(3)" > Add to Cart </button>
+      </div>
+   </div>
+   </section>
+   <!-- ========================= LOCATION / GPS SECTION ========================= --> 
+    <section class="location"> 
+      <h2> Find Your Location </h2> 
+      <p id="location-text"> Click the button to get your current location.</p> 
+      <button onclick="getLocation()" > 📍 Get My Location </button> 
+    </section>
+    <!-- ========================= ORDER TRACKING SECTION ========================= --> 
+     <section id="tracking" class="tracking" > 
+      <h2> Track Your Order </h2> 
+      <p> Track the progress of your Manu's Kitchen order. </p> 
+    <div class="Tracking Progress">
+      <!-- Step 1 --> 
+      <div class="tracking-step"> 
+        <span id="step1"> ⬜ </span> 
+        <p> Order Confirmed </p>
+    </div>
+    <!-- Step 2 --> 
+     <div class="tracking-step"> 
+      <span id="step2"> ⬜ </span> 
+      <p> Preparing </p>
+     </div>
+     <!-- Step 3 --> 
+      <div class="tracking-step"> 
+        <span id="step3"> ⬜ </span> 
+        <p> Out for Delivery </p> 
+      </div> 
+      <!-- Step 4 -->
+      <div class="tracking-step"> 
+        <span id="step4"> ⬜ </span> 
+        <p> Delivered </p> 
+      </div>
+     </div> 
+     <p id="order-status"> No active order. </p> 
+    </section>
+<!-- Contact Section --> 
+<section id="contact" class="contact"> 
+<h2>Contact Us</h2> 
+<p>📍 Gurugram, Haryana</p> 
+<p>📞 +91 8130165791</p> 
+<p>✉️ info@manuskitchen.com</p> 
+</section>
+
+<!-- Footer --> 
+<footer> 
+<p> © 2026 Manu's Kitchen Restaurant. All Rights Reserved. </p>
+</footer>
+<!-- ================================================== SHOPPING CART ================================================== --> 
+ <div id="cart-box" class="cart-box" > 
+  <!-- Cart Header --> 
+   <div class="cart-header"> 
+    <h2> 🛒 Your Cart </h2> 
+    <button onclick="closeCart()" > ✖ </button> 
+  </div> 
+  <!-- Cart Items --> 
+   <div id="cart-items"> 
+    <p> Your cart is empty. </p> 
+  </div> 
+  <hr> 
+  <!-- Cart Total --> 
+   <h3 class="cart-total"> Total: ₹
+    <span id="cart-total"> 0 </span> 
+  </h3> 
+  <!-- Checkout Button --> 
+   <button class="checkout-button" onclick="openCheckout()" > Proceed to Checkout </button> 
+  </div> 
+  <!-- ================================================== CHECKOUT POPUP ================================================== --> 
+   <div id="checkout-box" class="checkout-box" > 
+    <div class="checkout-content"> 
+      <!-- Close Button --> 
+       <button class="close-checkout" onclick="closeCheckout()" > ✖ </button> 
+       <h2> Checkout </h2>
+        <!-- Customer Name --> 
+         <input type="text" id="customer-name" placeholder="Enter your name" > 
+         <!-- Phone --> 
+          <input type="tel" id="customer-phone" placeholder="Enter phone number" >
+           <!-- Address -->
+             <textarea id="customer-address" placeholder="Enter delivery address" ></textarea>
+              <!-- Payment --> 
+               <h3> Payment Method </h3> 
+               <label> 
+                <input type="radio" name="payment" value="COD" checked > Cash on Delivery </label> 
+                <label> <input type="radio" name="payment" value="ONLINE" > Online Payment </label> 
+                <!-- Checkout Amount --> 
+                 <h3> Amount: ₹<span id="checkout-total"> 0 </span> </h3> 
+                 <!-- Place Order --> 
+                  <button class="place-order" onclick="placeOrder()" > Place Order </button> 
+                </div> 
+              </div> 
+              <!-- ========================= JAVASCRIPT ========================= --> 
+               <script src="script.js"></script>
+</body>
+</html>
